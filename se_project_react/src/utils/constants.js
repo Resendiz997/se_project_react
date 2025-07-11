@@ -50,7 +50,7 @@ export const weatherOptions = [
   },
   {
     day:true , 
-    condition: "cloudy",
+    condition: "clouds",
     url : new URL ("../images/daytime/cloudy.svg", import.meta.url).href
   },{
     day:true , 
@@ -74,7 +74,7 @@ export const weatherOptions = [
     url : new URL ("../images/night-time/clear.svg", import.meta.url).href
   },{
     day:false , 
-    condition: "cloudy",
+    condition: "clouds",
     url : new URL ("../images/night-time/cloudy.svg", import.meta.url).href
   },{
     day:false , 
