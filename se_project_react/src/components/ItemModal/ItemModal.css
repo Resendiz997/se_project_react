@@ -1,0 +1,25 @@
+.modal__caption{
+    font-size: 24px;
+    font-family: 'Cabinet Grotesk', cursive;
+    font-weight: 700;
+    margin: 20px 0 12px 20px;
+
+}
+.modal__weather{
+    font-size: 24px;
+    font-family: 'Cabinet Grotesk',cursive;
+    font-weight: 700;
+    margin: 0 20px 40px;
+}
+.modal__image {
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
+}
+.modal__content_type_image{
+    padding: 0;
+}
+.modal__close-btn_item{
+    background: url(../../images/item-close-btn.svg);
+    background-repeat: no-repeat;
+    padding: 0;
+}
