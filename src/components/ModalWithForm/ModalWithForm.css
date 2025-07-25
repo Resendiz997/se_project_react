@@ -1,0 +1,95 @@
+@font-face {
+    src: url("../../vendor/CabinetGrotesk-Variable.ttf") format("truetype");
+    font-family: "Cabinet Grotesk";
+  }
+
+.modal{
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    background-color:rgba(0, 0, 0, 0.3);
+    visibility: hidden;
+}
+.modal_opened{
+    visibility: visible;
+}
+.modal__content{
+    background-color: white;
+    position: relative;
+    padding: 28px 28px 36px;
+    width: 496px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.modal__close-btn{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+.modal__title{
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 0 0 24px;
+    font-family: "Cabinet Grotesk", cursive;
+
+}
+.modal__form{
+    display: flex;
+    flex-direction: column;
+}
+.modal__input{
+    display: block;
+    margin: 8px 0 24px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 440px;
+    font-weight: 700;
+}
+.modal__radio-btns{
+    border: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+.modal__label{
+    font-size: 16px;
+    font-weight: 700;
+    font-family: "Cabinet Grotesk", cursive;
+}
+.modal__legend{
+    margin: 0 0 12px;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: "Cabinet Grotesk", cursive;
+}
+.modal__radio-input{
+    margin: 0 8px 8px 0;
+}
+.modal__submit-btn{
+    background-color:rgba(0, 0, 0, 0.3);
+    height: 36px;
+    width: 124px;
+    color: white;
+    border-radius: 4px;
+    margin: 24px 0 0;
+    border: none;
+    font-family: "Cabinet Grotesk", cursive;
+}
+.modal__close-btn{
+    background-image: url(../../images/close-btn.png);
+    height: 20px;
+    width: 20px;
+    border: none;
+    margin: 24px;
+    color:rgba(0, 0, 0, 0.3);
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
