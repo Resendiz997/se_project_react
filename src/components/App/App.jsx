@@ -12,10 +12,9 @@ import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import {
   ApiKey,
   coordinates,
-  defaultClothingItems,
 } from "../../utils/constants";
 
-import CurrentTemperatureUnitContext from "../CurrentTemperatureUnit/CurrentTemperatureUnitContext";
+import CurrentTemperatureUnitContext from "../../utils/CurrentTemperatureUnit/CurrentTemperatureUnitContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import { getItems, postItems, deleteItems } from "../../utils/Api";
 
@@ -39,10 +38,11 @@ function App() {
     setActiveModal("Add garment");
   };
 
-  const HandleDeleteClick =(id) =>{
-    deleteItems(id);
+  const HandleDeleteClick =(_id) =>{
+    console.log(_id);
+    deleteItems(_id);
     setClothingItems(clothingItems.filter((item) => {
-      return item.id !== id; 
+      return item._id !== _id; 
     })
   )
   closeActiveModal();

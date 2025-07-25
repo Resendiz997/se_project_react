@@ -20,8 +20,8 @@ function postItems({ name, imageUrl, weather }) {
     });
 }
 
-function deleteItems(id) {
-    return fetch(`${baseUrl}/items/${id}`, {
+function deleteItems(_id) {
+    return fetch(`${baseUrl}/items/${_id}`, {
       method: "DELETE",
       headers: {"Content-Type": "application/json"},
     }).then((res) => {
