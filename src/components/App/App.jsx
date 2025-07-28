@@ -73,14 +73,11 @@ function App() {
   }, []);
 
   useEffect(() => {
-    console.log("About to fetch items from server");
  
     getItems().then((data) => {
-      console.log("Received data:", data);
       setClothingItems(data);
     })
     .catch((error) => {
-      console.error("Error fetching items:", error);
     });
   }, []);
 
