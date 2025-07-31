@@ -3,7 +3,7 @@ import ClothesSection from '../ClothesSection/ClothesSection';
 
 import './Profile.css';
 
-function Profile ({clothingItems,weatherData,onCardClick}) {
+function Profile ({clothingItems,onCardClick,onAddClick}) {
 
 
     return (
@@ -13,9 +13,9 @@ function Profile ({clothingItems,weatherData,onCardClick}) {
         </section>
         <section className="profile__clothes-item">
             <ClothesSection
+            onAddClick={onAddClick}
             onCardClick= {onCardClick}
             clothingItems={clothingItems}
-            weatherData={weatherData}
             />
         </section>
 

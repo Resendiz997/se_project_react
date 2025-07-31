@@ -1,7 +1,7 @@
 import "./AddItemModal.css";
 
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import { useState } from "react";
+import { useState , useEffect} from "react";
 
 function AddItemModal({ activeModal, closeActiveModal, onClothingItemSubmit}) {
   const [name, setName] = useState("");
@@ -19,14 +19,18 @@ function AddItemModal({ activeModal, closeActiveModal, onClothingItemSubmit}) {
     setWeather(e.target.value);
   };
 
+  useEffect(() => {
+    if (activeModal === "Add garment") {
+      setName("");
+      setImageUrl("");
+      setWeather("");
+    }
+  }, [activeModal === "Add garment"]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     onClothingItemSubmit({name, imageUrl,weather});
-    setName("");
-    setImageUrl("");
-    setWeather("");
-
-  };
+};
 
 
   return (

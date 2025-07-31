@@ -7,12 +7,10 @@ import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import ItemModal from "../ItemModal/ItemModal";
 import Profile from "../Profile/Profile";
+import ClothesSection from "../ClothesSection/ClothesSection";
 
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
-import {
-  ApiKey,
-  coordinates,
-} from "../../utils/constants";
+import { ApiKey, coordinates } from "../../utils/constants";
 
 import CurrentTemperatureUnitContext from "../../utils/CurrentTemperatureUnit/CurrentTemperatureUnitContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
@@ -34,21 +32,26 @@ function App() {
     setCurrentTemperatureUnit(currentTemperatureUnit === "F" ? "C" : "F");
   };
 
-  const HandleAddClick = () => {
+  const handleAddClick = () => {
     setActiveModal("Add garment");
   };
 
-  const HandleDeleteClick =(_id) =>{
-    console.log(_id);
-    deleteItems(_id);
-    setClothingItems(clothingItems.filter((item) => {
-      return item._id !== _id; 
-    })
-  )
-  closeActiveModal();
- };
+  const handleDeleteClick = (_id) => {
+    deleteItems(_id)
+    .then(() => {
+    setClothingItems(
+      clothingItems.filter((item) => {
+        return item._id !== _id;
+      })
+    );
+    closeActiveModal();
+  })
+    .catch((error) => {
+      console.error("Error deleting item:", error);
+    });
+  };
 
-  const HandleCardClick = (card) => {
+  const handleCardClick = (card) => {
     setActiveModal("preview");
     setSelectedCard(card);
   };
@@ -58,10 +61,15 @@ function App() {
   };
 
   const handleClothingItemSubmit = ({ name, imageUrl, weather }) => {
-    setClothingItems((prevItem) => [...prevItem, { name, imageUrl, weather }]);
-    postItems({ name, imageUrl, weather });
+    postItems({ name, imageUrl, weather })
+    .then((newItem) => {
+    setClothingItems((prevItem) => [newItem, ...prevItem]);
     closeActiveModal();
-  };
+    })
+    .catch((error) => {
+      console.error("Error adding item:", error);
+    }
+  )};
 
   useEffect(() => {
     getWeather(coordinates, ApiKey)
@@ -73,14 +81,13 @@ function App() {
   }, []);
 
   useEffect(() => {
- 
-    getItems().then((data) => {
-      setClothingItems(data);
-    })
-    .catch((error) => {
-    });
-  }, []);
-
+    getItems()
+      .then((data) => {
+        setClothingItems(data);
+      })
+      .catch(console.error);
+      },
+       []);
 
   return (
     <CurrentTemperatureUnitContext.Provider
@@ -88,7 +95,7 @@ function App() {
     >
       <div className="page">
         <div className="page__content">
-          <Header HandleAddClick={HandleAddClick} weatherData={weatherData} />
+          <Header HandleAddClick={handleAddClick} weatherData={weatherData} />
 
           <Routes>
             <Route
@@ -96,7 +103,7 @@ function App() {
               element={
                 <Main
                   weatherData={weatherData}
-                  onCardClick={HandleCardClick}
+                  onCardClick={handleCardClick}
                   clothingItems={clothingItems}
                 />
               }
@@ -106,8 +113,9 @@ function App() {
               element={
                 <Profile
                   clothingItems={clothingItems}
-                  onCardClick={HandleCardClick}
-                  weatherData={weatherData}
+                  onCardClick={handleCardClick}
+                  //weatherData={weatherData}
+                  onAddClick={handleAddClick}
                 />
               }
             />
@@ -123,7 +131,7 @@ function App() {
           selectedCard={selectedCard}
           activeModal={activeModal}
           onClick={closeActiveModal}
-          onDeleteClick={HandleDeleteClick}
+          onDeleteClick={handleDeleteClick}
         />
         <Footer />
       </div>
