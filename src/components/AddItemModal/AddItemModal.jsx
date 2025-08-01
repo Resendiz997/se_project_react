@@ -19,13 +19,16 @@ function AddItemModal({ activeModal, closeActiveModal, onClothingItemSubmit}) {
     setWeather(e.target.value);
   };
 
+  const isOpen = activeModal === "Add garment";
+
+
   useEffect(() => {
-    if (activeModal === "Add garment") {
+    if (isOpen) {
       setName("");
       setImageUrl("");
       setWeather("");
     }
-  }, [activeModal === "Add garment"]);
+  }, [isOpen]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -39,7 +42,7 @@ function AddItemModal({ activeModal, closeActiveModal, onClothingItemSubmit}) {
       btnText="Add garment"
       activeModal={activeModal}
       closeActiveModal={closeActiveModal}
-      isOpen={activeModal === "Add garment"}
+      isOpen={isOpen}
       onSubmit = {handleSubmit}
     >
       <label htmlFor="name" className="modal__label">

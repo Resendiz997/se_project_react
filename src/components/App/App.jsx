@@ -38,17 +38,17 @@ function App() {
 
   const handleDeleteClick = (_id) => {
     deleteItems(_id)
-    .then(() => {
-    setClothingItems(
-      clothingItems.filter((item) => {
-        return item._id !== _id;
+      .then(() => {
+        setClothingItems(
+          clothingItems.filter((item) => {
+            return item._id !== _id;
+          })
+        );
+        closeActiveModal();
       })
-    );
-    closeActiveModal();
-  })
-    .catch((error) => {
-      console.error("Error deleting item:", error);
-    });
+      .catch((error) => {
+        console.error("Error deleting item:", error);
+      });
   };
 
   const handleCardClick = (card) => {
@@ -62,14 +62,14 @@ function App() {
 
   const handleClothingItemSubmit = ({ name, imageUrl, weather }) => {
     postItems({ name, imageUrl, weather })
-    .then((newItem) => {
-    setClothingItems((prevItem) => [newItem, ...prevItem]);
-    closeActiveModal();
-    })
-    .catch((error) => {
-      console.error("Error adding item:", error);
-    }
-  )};
+      .then((newItem) => {
+        setClothingItems((prevItem) => [newItem, ...prevItem]);
+        closeActiveModal();
+      })
+      .catch((error) => {
+        console.error("Error adding item:", error);
+      });
+  };
 
   useEffect(() => {
     getWeather(coordinates, ApiKey)
@@ -86,8 +86,7 @@ function App() {
         setClothingItems(data);
       })
       .catch(console.error);
-      },
-       []);
+  }, []);
 
   return (
     <CurrentTemperatureUnitContext.Provider
