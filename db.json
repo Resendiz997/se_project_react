@@ -1,0 +1,160 @@
+{
+  "items": [
+    {
+      "_id": 4,
+      "name": "Dress",
+      "weather": "hot",
+      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Dress.png?etag=1f9cd32a311ab139cab43494883720bf"
+    },
+    {
+      "_id": 6,
+      "name": "Jacket",
+      "weather": "cold",
+      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Jacket.png?etag=f4bb188deaa25ac84ce2338be2d404ad"
+    },
+    {
+      "_id": 9,
+      "name": "Sandals",
+      "weather": "hot",
+      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Sandals.png?etag=9bea85a77c0306586d2b71a33b626d41"
+    },
+    {
+      "_id": 10,
+      "name": "Scarf",
+      "weather": "cold",
+      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Scarf.png?etag=74efbee93810c926b5507e862c6cb76c"
+    },
+    {
+      "_id": 11,
+      "name": "Shorts",
+      "weather": "Hot",
+      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Shorts.png?etag=d728c496643f610de8d8fea92dd915ba"
+    },
+    {
+      "_id": 14,
+      "name": "Sunglasses",
+      "weather": "hot",
+      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Sunglasses.png?etag=a1bced9e331d36cb278c45df51150432"
+    },
+    {
+      "_id": 16,
+      "name": "T-Shirt",
+      "weather": "hot",
+      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/T-Shirt.png?etag=44ed1963c44ab19cd2f5011522c5fc09"
+    },
+    {
+      "name": "new hat ",
+      "imageUrl": "https://therealmccoys.com/cdn/shop/products/MC20115_025_01.jpg?v=1684940097",
+      "weather": "warm",
+      "_id": 18
+    },
+    {
+      "name": "sweatpants",
+      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Cap.png?etag=f3dad389b22909cafa73cff9f9a3d591",
+      "weather": "cold",
+      "_id": 19
+    },
+    {
+      "name": "new hat ",
+      "imageUrl": "https://tracksmith-media.imgix.net/Mens_Trackhouse_Sweatpants_Gray.png?auto=format,compress&crop=faces&dpr=2&fit=crop&h=640&w=640",
+      "weather": "cold",
+      "_id": 20
+    },
+    {
+      "name": "sweatpants",
+      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/T-Shirt.png?etag=44ed1963c44ab19cd2f5011522c5fc09",
+      "weather": "warm",
+      "_id": 21
+    },
+    {
+      "name": "sweatpants",
+      "imageUrl": "https://tracksmith-media.imgix.net/Mens_Trackhouse_Sweatpants_Gray.png?auto=format,compress&crop=faces&dpr=2&fit=crop&h=640&w=640",
+      "weather": "hot",
+      "_id": 22
+    },
+    {
+      "name": "sweatpants",
+      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/T-Shirt.png?etag=44ed1963c44ab19cd2f5011522c5fc09",
+      "weather": "hot",
+      "_id": 24
+    },
+    {
+      "name": "sweatpants",
+      "imageUrl": "https://tracksmith-media.imgix.net/Mens_Trackhouse_Sweatpants_Gray.png?auto=format,compress&crop=faces&dpr=2&fit=crop&h=640&w=640",
+      "weather": "hot",
+      "_id": 25
+    },
+    {
+      "name": "sweatpants",
+      "imageUrl": "https://tracksmith-media.imgix.net/Mens_Trackhouse_Sweatpants_Gray.png?auto=format,compress&crop=faces&dpr=2&fit=crop&h=640&w=640",
+      "weather": "hot",
+      "_id": 26
+    },
+    {
+      "name": "sweatpants",
+      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/T-Shirt.png?etag=44ed1963c44ab19cd2f5011522c5fc09",
+      "weather": "hot",
+      "_id": 27
+    },
+    {
+      "name": "sweatpants",
+      "imageUrl": "https://tracksmith-media.imgix.net/Mens_Trackhouse_Sweatpants_Gray.png?auto=format,compress&crop=faces&dpr=2&fit=crop&h=640&w=640",
+      "weather": "hot",
+      "_id": 28
+    },
+    {
+      "name": "sweatpants",
+      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/T-Shirt.png?etag=44ed1963c44ab19cd2f5011522c5fc09",
+      "weather": "warm",
+      "_id": 29
+    },
+    {
+      "name": "sweatpants",
+      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/T-Shirt.png?etag=44ed1963c44ab19cd2f5011522c5fc09",
+      "weather": "hot",
+      "_id": 31
+    },
+    {
+      "name": "sweatpants",
+      "imageUrl": "https://tracksmith-media.imgix.net/Mens_Trackhouse_Sweatpants_Gray.png?auto=format,compress&crop=faces&dpr=2&fit=crop&h=640&w=640",
+      "weather": "warm",
+      "_id": 32
+    },
+    {
+      "name": "new hat ",
+      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/T-Shirt.png?etag=44ed1963c44ab19cd2f5011522c5fc09",
+      "weather": "warm",
+      "_id": 33
+    },
+    {
+      "name": "new hat ",
+      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/T-Shirt.png?etag=44ed1963c44ab19cd2f5011522c5fc09",
+      "weather": "hot",
+      "_id": 34
+    },
+    {
+      "name": "new hat ",
+      "imageUrl": "https://tracksmith-media.imgix.net/Mens_Trackhouse_Sweatpants_Gray.png?auto=format,compress&crop=faces&dpr=2&fit=crop&h=640&w=640",
+      "weather": "warm",
+      "_id": 35
+    },
+    {
+      "name": "sweatpants",
+      "imageUrl": "https://tracksmith-media.imgix.net/Mens_Trackhouse_Sweatpants_Gray.png?auto=format,compress&crop=faces&dpr=2&fit=crop&h=640&w=640",
+      "weather": "hot",
+      "_id": 36
+    },
+    {
+      "name": "sx",
+      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Cap.png?etag=f3dad389b22909cafa73cff9f9a3d591",
+      "weather": "warm",
+      "_id": 37
+    },
+    {
+      "name": "sx",
+      "imageUrl": "https://therealmccoys.com/cdn/shop/products/MC20115_025_01.jpg?v=1684940097",
+      "weather": "cold",
+      "_id": 38
+    }
+  ]
+}
