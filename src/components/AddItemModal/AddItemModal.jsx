@@ -1,7 +1,7 @@
-import "./ModalWithForm.css";
+import "./AddItemModal.css";
 import { useState, useEffect } from "react";
 
-function ModalWithForm({ title, btnText, closeActiveModal, isOpen, onSubmit }) {
+function AddItemModal({ title, btnText, closeActiveModal, isOpen, onSubmit }) {
   const [formData, setFormData] = useState({
     name: "",
     imageUrl: "",
@@ -120,4 +120,4 @@ function ModalWithForm({ title, btnText, closeActiveModal, isOpen, onSubmit }) {
   );
 }
 
-export default ModalWithForm;
+export default AddItemModal;

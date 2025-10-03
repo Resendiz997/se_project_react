@@ -5,7 +5,7 @@ import "./App.css";
 import Profile from "../Profile/Profile";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import AddItemModal from "../AddItemModal/AddItemModal.jsx";
 import Footer from "../Footer/Footer";
 import ItemModal from "../ItemModal/ItemModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
@@ -338,14 +338,14 @@ function App() {
                 />
               </label>
             </RegisterModal>
-            <ModalWithForm
+            <AddItemModal
               title="New Garment"
               btnText="Add garment"
               activeModal={activeModal}
               closeActiveModal={closeActiveModal}
               isOpen={activeModal === "Add garment"}
               onSubmit={handleAddGarment}
-            ></ModalWithForm>
+              />
             <ItemModal
               selectedCard={selectedCard}
               activeModal={activeModal}
