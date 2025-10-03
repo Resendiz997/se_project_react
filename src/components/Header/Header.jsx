@@ -49,6 +49,7 @@ function Header({
         </div>
       ) : (
         <div className="login__header">
+          <ToggleSwitch />
           <button
             onClick={handleSignInClick}
             className="header__menu-btn"

@@ -45,6 +45,7 @@
 }
 .login__header{
     margin-left: auto;
+    display: flex;
 }
 .profile__header{
     display: flex;
