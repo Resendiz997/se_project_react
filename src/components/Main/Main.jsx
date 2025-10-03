@@ -1,34 +1,37 @@
 import WeatherCard from "../WeatherCard/WeatherCard";
 import "./Main.css";
 import ItemCard from "../ItemCard/ItemCard";
-import { useContext } from "react";
-import CurrentTemperatureUnitContext from "../../utils/CurrentTemperatureUnit/CurrentTemperatureUnitContext";
+import React, { useContext } from "react";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
 
-function Main({ weatherData, onCardClick, clothingItems }) {
-  const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
+function Main({
+  weatherData,
+  HandleCardClick,
+  currentClothingItems,
+  handleCardLike,
+}) {
+  const currentUser = useContext(CurrentUserContext);
 
   return (
     <main>
       <WeatherCard weatherData={weatherData} />
       <section className="cards">
         <p className="cards__text">
-          Today is{" "}
-          {currentTemperatureUnit === "F"
-            ? weatherData.temp.F
-            : weatherData.temp.C}{" "}°
-          {currentTemperatureUnit} / You may want to wear:
+          Today is {weatherData.temp.F} / You may want to wear:
         </p>
         <ul className="card__list">
-          {clothingItems
+          {currentClothingItems
             .filter((item) => {
               return item.weather === weatherData.type;
             })
-            .map((item,id) => {
+            .map((item) => {
               return (
                 <ItemCard
-                  key={id}
+                  key={item._id}
+                  currentUser={currentUser}
                   item={item}
-                  onCardClick={onCardClick}
+                  HandleCardClick={HandleCardClick}
+                  handleCardLike={handleCardLike}
                 />
               );
             })}

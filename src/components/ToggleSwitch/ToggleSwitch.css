@@ -1,39 +1,38 @@
 .toggle-switch{
-    height: 28px;
     width: 56px;
+    height:28px;
     border: 2px solid black;
     border-radius: 20px;
-    overflow: hidden;   
-    position: absolute;
-    right: 390px;
+    overflow: hidden;
+    position: relative;
+    margin: 30px 20px;
 }
 .toggle-switch__checkbox{
-    opacity: 0;
+    opacity: 0  ;
 }
-.toggle-switch__slider{
-    background-color: black;
-    width: 28px;
+.toggle-switch__circle{
     height: 28px;
+    width: 28px;
     position: absolute;
+    background-color: black;
     border-radius: 50%;
     left: 0;
-    transition: all 0.3s;
+    transition: all 1s;
 }
-.toggle-switch__letter{
-    color: grey;
-    top: 5px;
-    position: absolute;
+.toggle-switch__text{
+   position: absolute;
+   top: 5px;
+   color: grey;
 }
-.toggle-switch__letter_F{
+.toggle-switch__text_F{
     left: 9px;
 }
-.toggle-switch__letter_C{
+.toggle-switch__text_C{
     right: 9px;
 }
-
-.toggle-switch__checkbox:checked ~ .toggle-switch__slider{
-    left: 28px; 
+.toggle-switch__checkbox:checked ~ .toggle-switch__circle{
+   left: 28px;
 }
-.toggle-switch__letter_color_white{
-color:white;
+.toggle-switch__text_color_white {
+    color: white;
 }

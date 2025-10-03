@@ -1,0 +1,32 @@
+.delete__modal-prompt{
+    font-family: "Cabinet Grotesk", cursive;
+    font-weight: 700;
+    font-size: 20px;
+    display: flex;
+    padding: 60px 152px 0;
+    text-align: center;
+    margin: 0;
+}
+.modal__content-delete{
+    width: 670px;
+    height: 280px;
+    justify-content: center;
+    padding: 0;
+}
+.delete__modal-btn{
+    background: none;
+    border: none;
+    margin: 40px 0 24px 0;
+    font-family: "Cabinet Grotesk", cursive;
+    font-weight: 700;
+    font-size: 20px;
+    color: red;
+}
+.delete__modal-cancel-btn{
+    background: none;
+    border: none;
+    margin: 0 0 60px;
+    font-family: "Cabinet Grotesk", cursive;
+    font-weight: 700;
+    font-size: 20px;
+}

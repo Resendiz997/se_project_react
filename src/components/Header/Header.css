@@ -34,7 +34,19 @@
     font-size: 20px;
     font-weight: 700;
 }
-.header__link{
-    text-decoration: none;
-    color:black;
+.header__menu-btn{
+    font-family: "Cabinet Grotesk",sans-serif;
+    margin-left: auto;
+    margin-right: 20px;
+    font-size: 20px;
+    font-weight: 700;
+    border-style: none;
+    background-color: #f3f3f3  
+}
+.login__header{
+    margin-left: auto;
+}
+.profile__header{
+    display: flex;
+    margin-left: auto;
 }

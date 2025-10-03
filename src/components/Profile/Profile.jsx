@@ -1,27 +1,35 @@
-import SideBar from '../SideBar/SideBar';
-import ClothesSection from '../ClothesSection/ClothesSection';
+import "./Profile.css";
+import ClothesSection from "../ClothesSection/ClothesSection";
+import SideBar from "../SideBar/SideBar";
 
-import './Profile.css';
-
-function Profile ({clothingItems,onCardClick,onAddClick}) {
-
-
-    return (
-    <div className='profile'>
-        <section className="profile__sidebar">
-            <SideBar/>
-        </section>
-        <section className="profile__clothes-item">
-            <ClothesSection
-            onAddClick={onAddClick}
-            onCardClick= {onCardClick}
-            clothingItems={clothingItems}
-            />
-        </section>
-
+function Profile({
+  currentUser,
+  weatherData,
+  HandleCardClick,
+  handleAddClick,
+  handleEditProfileClick,
+  handleSignOut,
+  currentClothingItems,
+  handleCardLike,
+}) {
+  return (
+    <div className="profile">
+      <SideBar
+        currentUser={currentUser}
+        handleEditProfileClick={handleEditProfileClick}
+        handleSignOut={handleSignOut}
+      />
+      <section className="profile__clothes-section-">
+        <ClothesSection
+          handleCardLike={handleCardLike}
+          currentClothingItems={currentClothingItems}
+          handleAddClick={handleAddClick}
+          weatherData={weatherData}
+          HandleCardClick={HandleCardClick}
+        />
+      </section>
     </div>
-    );
+  );
 }
 
-
-export default Profile; 
+export default Profile;

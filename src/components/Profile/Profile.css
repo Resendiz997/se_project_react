@@ -1,4 +1,38 @@
+.profile__sidebar-name{
+    font-family: "Cabinet Grotesk",sans-serif;
+    padding: 0;
+    font-size: 20px;
+    font-weight: 700;
+    margin-right: 70px;
+}
 .profile{
     display: flex;
-    gap: 116px;
+    padding: 0 40px;
+}
+.profile__sidebar-btns{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.profile__sidebar-edit{
+    border: none;
+    background: none;
+    font-family: "Cabinet Grotesk",sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 0;
+    width: max-content;
+}
+.profile__sidebar-log-out{
+    border: none;
+    background: none;
+    font-family: "Cabinet Grotesk",sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-right: auto;
+}
+.profile__sidebar-user{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 24px 0;
 }
