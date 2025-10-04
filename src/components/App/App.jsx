@@ -11,7 +11,7 @@ import ItemModal from "../ItemModal/ItemModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
-import CurrentTempatureUnitContext from "../../contexts/currentTempatureUnit";
+import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnit";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import EditProfileModal from "../EditProfileModal/EDITpROFILEmoDAL.JSX";
 import DeleteModal from "../DeleteModal/DeleteModal.jsx";
@@ -38,12 +38,12 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [stayLoggedIn, setStayLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
-  const [currentTempatureUnit, setCurrentTempatureUnit] = useState("F");
+  const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [currentClothingItems, setCurrentClothingItems] = useState([]);
   const [cardToDelete, setCardToDelete] = useState({});
 
   const handleToggleSwitchChange = () => {
-    setCurrentTempatureUnit(currentTempatureUnit === "F" ? "C" : "F");
+    setCurrentTemperatureUnit(currentTemperatureUnit === "F" ? "C" : "F");
   };
 
   const handleRegistration = (formData) => {
@@ -157,7 +157,7 @@ function App() {
     setActiveModal("Sign up");
   };
 
-  const HandleCardClick = (card) => {
+  const handleCardClick = (card) => {
     setActiveModal("preview");
     setSelectedCard(card);
   };
@@ -206,8 +206,8 @@ function App() {
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
-      <CurrentTempatureUnitContext.Provider
-        value={{ currentTempatureUnit, handleToggleSwitchChange }}
+      <CurrentTemperatureUnitContext.Provider
+        value={{ currentTemperatureUnit, handleToggleSwitchChange }}
       >
         <Router>
           <div className="page">
@@ -225,7 +225,7 @@ function App() {
                   element={
                     <Main
                       weatherData={weatherData}
-                      HandleCardClick={HandleCardClick}
+                      HandleCardClick={handleCardClick}
                       currentClothingItems={currentClothingItems}
                       handleCardLike={handleCardLike}
                       currentUser={currentUser}
@@ -237,7 +237,7 @@ function App() {
                   element={
                     <ProtectedRoute isLoggedIn={stayLoggedIn}>
                       <Profile
-                        HandleCardClick={HandleCardClick}
+                        HandleCardClick={handleCardClick}
                         currentClothingItems={currentClothingItems}
                         handleCardLike={handleCardLike}
                         currentUser={currentUser}
@@ -362,7 +362,7 @@ function App() {
             <Footer />
           </div>
         </Router>
-      </CurrentTempatureUnitContext.Provider>
+      </CurrentTemperatureUnitContext.Provider>
     </CurrentUserContext.Provider>
   );
 }

@@ -1,8 +1,8 @@
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import React, { useContext } from "react";
 import ItemCard from "../ItemCard/ItemCard";
-import "./ClothingSection.css";
-
+import "./ClothesSection.css";
+  
 function ClothesSection({
   currentClothingItems,
   handleAddClick,

@@ -1,10 +1,10 @@
 import "./WeatherCard.css";
 import { weatherOptions, defaultWeatherOptions } from "../../utils/constants";
 import { useContext } from "react";
-import CurrentTempatureUnitContext from "../../contexts/currentTempatureUnit";
+import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnit";
 
 function WeatherCard({ weatherData }) {
-  const { currentTempatureUnit } = useContext(CurrentTempatureUnitContext);
+  const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
 
   const filteredWeatherOption = weatherOptions.filter((option) => {
     return (
@@ -23,8 +23,8 @@ function WeatherCard({ weatherData }) {
   return (
     <section className="weather-card">
       <p className="weather-card__temp">
-        {currentTempatureUnit === "F" ? weatherData.temp.F : weatherData.temp.C}
-        °{currentTempatureUnit}
+        {currentTemperatureUnit === "F" ? weatherData.temp.F : weatherData.temp.C}
+        °{currentTemperatureUnit}
       </p>
       <img
         src={weatherOption?.url}

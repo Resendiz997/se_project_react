@@ -7,9 +7,8 @@ function SideBar({ currentUser, handleEditProfileClick, handleSignOut }) {
 
   const submitSignOut = (e) => {
     e.preventDefault();
-    handleSignOut().then(() => {
+    handleSignOut();
       navigate("/");
-    });
   };
 
   return (
@@ -17,7 +16,7 @@ function SideBar({ currentUser, handleEditProfileClick, handleSignOut }) {
       <section className="profile__sidebar">
         <div className="profile__sidebar-user">
           <img
-            src={Avatar}
+            src={currentUser.avatar}
             alt="Oscar Resendiz"
             className="profile__sidebar-avatar"
           />

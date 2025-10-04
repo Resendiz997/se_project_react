@@ -4,7 +4,7 @@ import { useContext } from "react";
 
 function ItemModal({ activeModal, selectedCard, onClick, handleDeleteClick }) {
   const currentUser = useContext(CurrentUserContext);
-  console.log(selectedCard);
+  
 
   const isOwn = selectedCard.owner === currentUser?._id;
 

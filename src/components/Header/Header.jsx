@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 
 import "./Header.css";
 import Logo from "../../images/header-logo.svg";
-import Avatar from "../../images/avatar.svg";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 
 function Header({
@@ -40,7 +39,7 @@ function Header({
             <p className="header__username">{currentUser.name}</p>
             <Link to="/profile">
               <img
-                src={Avatar}
+                src={currentUser.avatar}
                 alt="Oscar Resendiz"
                 className="header__avatar"
               />

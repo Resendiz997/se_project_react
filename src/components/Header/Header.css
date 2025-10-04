@@ -51,3 +51,8 @@
     display: flex;
     margin-left: auto;
 }
+.header__avatar{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}

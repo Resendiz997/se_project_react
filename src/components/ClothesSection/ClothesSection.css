@@ -18,9 +18,6 @@
     font-weight: 700;
 }
 .clothing-section__items{
-    /* display: grid;
-    grid-template-columns: repeat(auto-fit, 283px);
-    grid-template-rows: repeat(auto-fit, 283px); */
     grid-gap: 20px;
     padding: 0;
     padding: 0;
