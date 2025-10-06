@@ -1,8 +1,11 @@
 import "./SideBar.css";
 import { useNavigate } from "react-router-dom";
-import Avatar from "../../images/avatar.svg";
 
-function SideBar({ currentUser, handleEditProfileClick, handleSignOut }) {
+import CurrentUserContext from "../../contexts/CurrentUserContext";
+import { useContext } from "react";
+
+
+function SideBar({ handleEditProfileClick, handleSignOut }) {
   const navigate = useNavigate();
 
   const submitSignOut = (e) => {
@@ -10,6 +13,9 @@ function SideBar({ currentUser, handleEditProfileClick, handleSignOut }) {
     handleSignOut();
       navigate("/");
   };
+
+  const currentUser = useContext(CurrentUserContext);
+
 
   return (
     <aside className="sidebar">

@@ -1,15 +1,9 @@
 import { useState } from "react";
 import "./LoginModal.css";
 import { useNavigate } from "react-router-dom";
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-function LoginModal({
-  children,
-  title,
-  closeActiveModal,
-  isOpen,
-  btnText,
-  handleLogin,
-}) {
+function LoginModal({ title, closeActiveModal, isOpen, btnText, handleLogin ,btnRedirect, setActiveModal,activeModal}) {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -33,26 +27,45 @@ function LoginModal({
   };
 
   return (
-    <div className={`modal ${isOpen && "modal_opened"}`}>
-      <div className="modal__content">
-        <h2 className="modal__title">{title}</h2>
-        <button
-          onClick={closeActiveModal}
-          type="button"
-          className="modal__close-btn"
-        ></button>
-        <form
-          className="modal__form"
+    <ModalWithForm
+      title={title}
+      btnText={btnText}
+      isOpen={isOpen}
+      closeActiveModal={closeActiveModal}
+      handleLogin={handleLogin}
+      handleInputChange={handleInputChange}
+      handleSubmit={handleSubmit}
+      btnRedirect={btnRedirect}
+      setActiveModal={setActiveModal}
+      activeModal={activeModal}
+    >
+      <label htmlFor="email" className="modal__label">
+        Email{""}
+        <input  
+          value={formData.email}
+          type="text"
+          name="email"
+          className="modal__input"
+          id="log-in-email"
+          placeholder="Email"
           onChange={handleInputChange}
-          onSubmit={handleSubmit}
-        >
-          {children}
-          <button type="submit" className="modal__submit-btn">
-            {btnText}
-          </button>
-        </form>
-      </div>
-    </div>
+          required
+        />
+      </label>
+      <label htmlFor="password" className="modal__label">
+        Password{""}
+        <input
+          value={formData.password}
+          type="password"
+          name="password"
+          className="modal__input"
+          id="log-in-password"
+          placeholder="Password"
+          onChange={handleInputChange}
+          required
+        />
+      </label>
+    </ModalWithForm>
   );
 }
 

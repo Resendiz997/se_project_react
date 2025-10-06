@@ -1,5 +1,8 @@
 import React, { useState, useContext, useEffect } from "react";
+
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
+
 import "./EditProfileModal.css";
 
 function EditProfileModal({
@@ -39,15 +42,14 @@ function EditProfileModal({
   };
 
   return (
-    <div className={`modal ${isOpen && "modal_opened"}`}>
-      <div className="modal__content">
-        <h2 className="modal__title">{title}</h2>
-        <button
-          onClick={closeActiveModal}
-          type="button"
-          className="modal__close-btn"
-        ></button>
-        <form className="modal__form" onSubmit={handleSubmit}>
+    <ModalWithForm
+    title={title}
+    btnText={btnText}
+    isOpen={isOpen}
+    closeActiveModal={closeActiveModal}
+    handleSubmit={handleSubmit}
+    handleInputChange={handleInputChange}
+  >
           <label htmlFor="name" className="modal__label">
             Name{""}
             <input
@@ -73,17 +75,9 @@ function EditProfileModal({
               placeholder="Image URL"
               required
             />
-            <button
-              type="submit"
-              className="modal__submit-btn modal__submit-btn-edit"
-            >
-              {btnText}
-            </button>
-          </label>
-        </form>
-      </div>
-    </div>
-  );
+            </label>
+  </ModalWithForm>
+  )
 }
 
 export default EditProfileModal;

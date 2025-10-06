@@ -2,7 +2,7 @@ import "./ItemCard.css";
 import LikeBtn from "../../images/likebtn.svg";
 import unLikedBtn from "../../images/unLikedBtn.svg";
 
-function ItemCard({ item, HandleCardClick, handleCardLike, currentUser }) {
+function  ItemCard({ item, HandleCardClick, handleCardLike, currentUser }) {
   const ImageModalClick = () => {
     HandleCardClick(item);
   };

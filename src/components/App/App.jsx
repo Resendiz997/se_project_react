@@ -101,7 +101,7 @@ function App() {
     const { name, imageUrl, weather } = formData;
     const newItem = { name, imageUrl, weather };
     addClothingItem(newItem).then((newItem) => {
-      setCurrentClothingItems([...currentClothingItems, newItem]);
+      setCurrentClothingItems([newItem,...currentClothingItems]);
       closeActiveModal();
     })
     .catch((error) => {
@@ -125,7 +125,7 @@ function App() {
       ? addCardLike(itemId)
           .then((updatedCard) => {
             setCurrentClothingItems((cards) =>
-              cards.map((item) => (item._id === itemId ? updatedCard : item))
+              cards.map((item) => (item._id === itemId ? updatedCard: item))
             );
           })
           .catch((err) => console.log(err))
@@ -164,7 +164,26 @@ function App() {
 
   const closeActiveModal = () => {
     setActiveModal("");
+    document.activeElement.blur() 
   };
+
+
+  useEffect(() => {
+
+    if (!activeModal) return; // stop the effect not to add the listener if there is no active modal
+
+    const handleEscClose = (e) => {  // define the function inside useEffect not to lose the reference on rerendering
+      if (e.key === "Escape") {
+       closeActiveModal();
+      }
+    };
+
+    document.addEventListener("keydown", handleEscClose);
+
+    return () => {  // don't forget to add a clean up function for removing the listener
+      document.removeEventListener("keydown", handleEscClose);
+    };
+  }, [activeModal]);  // watch activeModal here
 
   // on page load, fetch to get the weather info, and store it in the weatherData state
   useEffect(() => {
@@ -217,7 +236,6 @@ function App() {
                 handleAddClick={handleAddClick}
                 handleSignUpClick={handleSignUpClick}
                 weatherData={weatherData}
-                currentUser={currentUser}
               />
               <Routes>
                 <Route
@@ -228,7 +246,6 @@ function App() {
                       HandleCardClick={handleCardClick}
                       currentClothingItems={currentClothingItems}
                       handleCardLike={handleCardLike}
-                      currentUser={currentUser}
                     />
                   }
                 />
@@ -240,7 +257,6 @@ function App() {
                         HandleCardClick={handleCardClick}
                         currentClothingItems={currentClothingItems}
                         handleCardLike={handleCardLike}
-                        currentUser={currentUser}
                         weatherData={weatherData}
                         handleEditProfileClick={handleEditProfileClick}
                         handleAddClick={handleAddClick}
@@ -265,78 +281,18 @@ function App() {
               closeActiveModal={closeActiveModal}
               isOpen={activeModal === "Sign in"}
               handleLogin={handleLogin}
-            >
-              <label htmlFor="email" className="modal__label">
-                Email{""}
-                <input
-                  type="text"
-                  name="email"
-                  className="modal__input"
-                  id="log-in-email"
-                  placeholder="Email"
-                  required
-                />
-              </label>
-              <label htmlFor="password" className="modal__label">
-                Password{""}
-                <input
-                  type="password"
-                  name="password"
-                  className="modal__input"
-                  id="log-in-password"
-                  placeholder="Password"
-                  required
-                />
-              </label>
+              btnRedirect = "Or Register"
+              setActiveModal = {setActiveModal}>
             </LoginModal>
             <RegisterModal
               title="Sign up"
               btnText="Next"
+              btnRedirect={"or Log in"}
+              setActiveModal={setActiveModal}
               activeModal={activeModal}
               closeActiveModal={closeActiveModal}
               isOpen={activeModal === "Sign up"}
-              onSubmit={handleRegistration}
-            >
-              <label htmlFor="email" className="modal__label">
-                Email{""}
-                <input
-                  type="text"
-                  className="modal__input"
-                  id="email"
-                  placeholder="Email"
-                  required
-                />
-              </label>
-              <label htmlFor="password" className="modal__label">
-                Password{""}
-                <input
-                  type="password"
-                  className="modal__input"
-                  id="password"
-                  placeholder="Password"
-                  required
-                />
-              </label>
-              <label htmlFor="name" className="modal__label">
-                Name{""}
-                <input
-                  type="text"
-                  className="modal__input"
-                  id="register name"
-                  placeholder="Name"
-                  required
-                />
-              </label>
-              <label htmlFor="avatarURL" className="modal__label">
-                Avatar URL{""}
-                <input
-                  type="text"
-                  className="modal__input"
-                  id="avatarURL"
-                  placeholder="Avatar URL"
-                  required
-                />
-              </label>
+              handleRegistration={handleRegistration}>
             </RegisterModal>
             <AddItemModal
               title="New Garment"
@@ -344,7 +300,7 @@ function App() {
               activeModal={activeModal}
               closeActiveModal={closeActiveModal}
               isOpen={activeModal === "Add garment"}
-              onSubmit={handleAddGarment}
+              handleAddGarment={handleAddGarment}
               />
             <ItemModal
               selectedCard={selectedCard}
@@ -355,7 +311,6 @@ function App() {
             />
             <DeleteModal
               isOpen={activeModal === "delete"}
-              onClick={closeActiveModal}
               closeActiveModal={closeActiveModal}
               handleRemoveClothingItem={handleRemoveClothingItem}
             />

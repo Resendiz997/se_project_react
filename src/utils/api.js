@@ -4,6 +4,14 @@ const getToken = () => {
   return localStorage.getItem("jwt");
 };
 
+
+export function checkResponse(res){
+  if (res.ok) {
+    return res.json();
+}
+return Promise.reject(`Error ${res.status}`);
+};
+
 export const addClothingItem = (item) => {
   const token = getToken();
 
@@ -14,12 +22,7 @@ export const addClothingItem = (item) => {
       authorization: `Bearer ${token}`,
     },
     body: JSON.stringify(item),
-  }).then((response) => {
-    if (!response.ok) {
-      throw new Error("Failed to add item");
-    }
-    return response.json();
-  });
+  }).then(checkResponse)
 };
 
 export const deleteClothingItem = (itemId) => {
@@ -31,12 +34,7 @@ export const deleteClothingItem = (itemId) => {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
-  }).then((response) => {
-    if (!response.ok) {
-      throw new Error("Failed to delete item");
-    }
-    return response.json();
-  });
+  }).then(checkResponse)
 };
 
 export const getProfileInfo = () => {
@@ -48,12 +46,7 @@ export const getProfileInfo = () => {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
-  }).then((response) => {
-    if (!response.ok) {
-      throw new Error("Failed to get profile");
-    }
-    return response.json();
-  });
+  }).then(checkResponse)
 };
 
 export const addCardLike = (itemId) => {
@@ -65,12 +58,7 @@ export const addCardLike = (itemId) => {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
-  }).then((response) => {
-    if (!response.ok) {
-      throw new Error("Failed to get like or unlike an item");
-    }
-    return response.json();
-  });
+  }).then(checkResponse)
 };
 
 
@@ -82,12 +70,7 @@ export const removeCardLike = (itemId) => {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
-  }).then((response) => {
-    if (!response.ok) {
-      throw new Error("Failed to get like or unlike an item");
-    }
-    return response.json();
-  });
+  }).then(checkResponse)
 };
 
 export const updateProfile = (item) => {
@@ -99,12 +82,7 @@ export const updateProfile = (item) => {
       authorization: `Bearer ${token}`,
     },
     body: JSON.stringify(item),
-  }).then((response) => {
-    if (!response.ok) {
-      throw new Error("Failed to update profile");
-    }
-    return response.json();
-  });
+  }).then(checkResponse)
 };
 
 export const getClothingItems = () => {
@@ -113,10 +91,5 @@ export const getClothingItems = () => {
     headers: {
       "Content-Type": "application/json",
     },
-  }).then((response) => {
-    if (!response.ok) {
-      throw new Error("Failed to get item");
-    }
-    return response.json();
-  });
+  }).then(checkResponse)
 };

@@ -1,7 +1,8 @@
 import { useState } from "react";
 import "./RegisterModal.css";
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-function RegisterModal({ title, closeActiveModal, isOpen, btnText, onSubmit }) {
+function RegisterModal({ title, closeActiveModal, isOpen, btnText, handleRegistration, btnRedirect, setActiveModal ,activeModal}) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -19,19 +20,21 @@ function RegisterModal({ title, closeActiveModal, isOpen, btnText, onSubmit }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(formData);
+    handleRegistration(formData);
   };
 
   return (
-    <div className={`modal ${isOpen && "modal_opened"}`}>
-      <div className="modal__content">
-        <h2 className="modal__title">{title}</h2>
-        <button
-          onClick={closeActiveModal}
-          type="button"
-          className="modal__close-btn"
-        ></button>
-        <form className="modal__form" onSubmit={handleSubmit}>
+    <ModalWithForm
+      setActiveModal ={setActiveModal}
+      title={title}
+      btnText={btnText}
+      isOpen={isOpen}
+      closeActiveModal={closeActiveModal}
+      handleInputChange={handleInputChange}
+      handleSubmit={handleSubmit}
+      btnRedirect={btnRedirect}
+      activeModal={activeModal}
+    >
           <label htmlFor="email" className="modal__label">
             Email
             <input
@@ -80,14 +83,9 @@ function RegisterModal({ title, closeActiveModal, isOpen, btnText, onSubmit }) {
               required
             />
           </label>
-          <button type="submit" className="modal__submit-btn">
-            {" "}
-            {btnText}{" "}
-          </button>
-        </form>
-      </div>
-    </div>
-  );
-}
+          </ModalWithForm>
+          )
+        }
+
 
 export default RegisterModal;

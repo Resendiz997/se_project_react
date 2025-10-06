@@ -10,9 +10,9 @@ function ClothesSection({
   HandleCardClick,
 }) {
   const currentUser = useContext(CurrentUserContext);
-
+  
   const userItems = currentClothingItems.filter(
-    (item) => item.owner === currentUser._id
+    (items) =>  items.owner === currentUser?._id
   );
 
   return (
@@ -24,14 +24,14 @@ function ClothesSection({
         </button>
       </div>
       <ul className="clothing-section__items">
-        {userItems.map((item) => {
+        {userItems.map((items) => {
           return (
             <ItemCard
               HandleCardClick={HandleCardClick}
               currentUser={currentUser}
               handleCardLike={handleCardLike}
-              key={item._id}
-              item={item}
+              // key={items._id}
+              item={items}
             />
           );
         })}

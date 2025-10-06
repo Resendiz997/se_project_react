@@ -1,7 +1,8 @@
 import "./AddItemModal.css";
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useState, useEffect } from "react";
 
-function AddItemModal({ title, btnText, closeActiveModal, isOpen, onSubmit }) {
+function AddItemModal({ title, btnText, closeActiveModal, isOpen,handleAddGarment }) {
   const [formData, setFormData] = useState({
     name: "",
     imageUrl: "",
@@ -18,7 +19,7 @@ function AddItemModal({ title, btnText, closeActiveModal, isOpen, onSubmit }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(formData);
+    handleAddGarment(formData);
   };
 
   useEffect(() => {
@@ -28,15 +29,14 @@ function AddItemModal({ title, btnText, closeActiveModal, isOpen, onSubmit }) {
   }, [isOpen]);
 
   return (
-    <div className={`modal ${isOpen && "modal_opened"}`}>
-      <div className="modal__content">
-        <h2 className="modal__title">{title}</h2>
-        <button
-          onClick={closeActiveModal}
-          type="button"
-          className="modal__close-btn"
-        ></button>
-        <form className="modal__form" onSubmit={handleSubmit}>
+    <ModalWithForm
+      title={title}
+      btnText={btnText}
+      isOpen={isOpen}
+      closeActiveModal={closeActiveModal}
+      handleSubmit={handleSubmit}
+      handleAddGarment={handleAddGarment}
+    >
           <label htmlFor="name" className="modal__label">
             Name{""}
             <input
@@ -111,13 +111,8 @@ function AddItemModal({ title, btnText, closeActiveModal, isOpen, onSubmit }) {
               Cold
             </label>
           </fieldset>
-          <button type="submit" className="modal__submit-btn">
-            {btnText}
-          </button>
-        </form>
-      </div>
-    </div>
-  );
+          </ModalWithForm>
+                 );
 }
 
 export default AddItemModal;

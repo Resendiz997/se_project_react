@@ -1,6 +1,6 @@
 import "./DeleteModal.css";
 
-function DeleteModal({ isOpen, onClick, handleRemoveClothingItem }) {
+function DeleteModal({ isOpen, closeActiveModal, handleRemoveClothingItem }) {
   return (
     <div className="delete__modal">
       <div className={`modal ${isOpen && "modal_opened"}`}>
@@ -8,7 +8,7 @@ function DeleteModal({ isOpen, onClick, handleRemoveClothingItem }) {
           <button
             className="modal__close-btn modal__close-btn-delete"
             type="button"
-            onClick={onClick}
+            onClick={closeActiveModal}
           ></button>
           <p className="delete__modal-prompt">
             Are you sure you want to delete this item? This action is
@@ -21,7 +21,7 @@ function DeleteModal({ isOpen, onClick, handleRemoveClothingItem }) {
           >
             Yes, delete item
           </button>
-          <button className="delete__modal-cancel-btn" onClick={onClick}>
+          <button className="delete__modal-cancel-btn" onClick={closeActiveModal}>
             Cancel
           </button>
         </div>
