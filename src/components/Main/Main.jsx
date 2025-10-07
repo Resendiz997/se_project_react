@@ -25,7 +25,7 @@ function Main({
           {currentClothingItems
             .filter((item) => {
               return item.weather === weatherData.type;
-            })
+            })  
             .map((item) => {
               return (
                 <ItemCard

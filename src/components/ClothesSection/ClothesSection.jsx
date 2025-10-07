@@ -30,7 +30,7 @@ function ClothesSection({
               HandleCardClick={HandleCardClick}
               currentUser={currentUser}
               handleCardLike={handleCardLike}
-              // key={items._id}
+              key={items._id}
               item={items}
             />
           );

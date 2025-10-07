@@ -39,7 +39,7 @@ function LoginModal({ title, closeActiveModal, isOpen, btnText, handleLogin ,btn
       setActiveModal={setActiveModal}
       activeModal={activeModal}
     >
-      <label htmlFor="email" className="modal__label">
+      <label className="modal__label">
         Email{""}
         <input  
           value={formData.email}
@@ -52,7 +52,7 @@ function LoginModal({ title, closeActiveModal, isOpen, btnText, handleLogin ,btn
           required
         />
       </label>
-      <label htmlFor="password" className="modal__label">
+      <label className="modal__label">
         Password{""}
         <input
           value={formData.password}

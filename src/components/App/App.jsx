@@ -132,7 +132,7 @@ function App() {
       : removeCardLike(itemId)
           .then((updatedCard) => {
             setCurrentClothingItems((cards) =>
-              cards.map((item) => (item._id === itemId ? updatedCard : item))
+              cards.map((item) => (item._id === itemId ? updatedCard: item))
             );
           })
           .catch((err) => console.log(err));
